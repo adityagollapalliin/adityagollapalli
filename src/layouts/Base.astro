@@ -1,0 +1,72 @@
+---
+import "../styles/global.css";
+import { profile } from "../data/resume";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${profile.name} — ${profile.title}`,
+  description = profile.tagline,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scheme-dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen">
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div id="spotlight" aria-hidden="true"></div>
+    <slot />
+    <script>
+      // reveal-on-scroll
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.1 },
+      );
+      document.querySelectorAll(".fade-up").forEach((el) => io.observe(el));
+
+      // cursor spotlight (desktop, motion-ok only)
+      const spot = document.getElementById("spotlight");
+      const fine = window.matchMedia("(pointer: fine)").matches;
+      const motionOk = window.matchMedia(
+        "(prefers-reduced-motion: no-preference)",
+      ).matches;
+      if (spot && fine && motionOk) {
+        window.addEventListener(
+          "pointermove",
+          (e) => {
+            spot.style.background = `radial-gradient(600px circle at ${e.clientX}px ${e.clientY}px, rgba(124, 58, 237, 0.10), transparent 70%)`;
+          },
+          { passive: true },
+        );
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,318 @@
+---
+import Base from "../layouts/Base.astro";
+import CopyEmail from "../components/CopyEmail";
+import {
+  profile,
+  about,
+  experience,
+  skills,
+  projects,
+  education,
+  certifications,
+  badges,
+} from "../data/resume";
+---
+
+<Base>
+  <main class="mx-auto max-w-3xl px-6 pb-24">
+    <!-- Hero -->
+    <section class="flex min-h-[80vh] flex-col justify-center pt-20">
+      <p class="hero-in d1 mb-4 font-mono text-sm text-cyan-300">
+        hi, my name is
+      </p>
+      <h1 class="hero-in d2 text-gradient text-5xl font-bold tracking-tight sm:text-7xl">
+        {profile.name}
+      </h1>
+      <h2 class="hero-in d2 mt-3 text-xl font-semibold text-(--color-ink-muted) sm:text-2xl">
+        {profile.title}
+      </h2>
+      <p class="hero-in d3 mt-6 max-w-xl leading-relaxed text-(--color-ink-muted)">
+        {profile.tagline}
+      </p>
+      <div class="hero-in d4 mt-10 flex flex-wrap items-center gap-5">
+        <a
+          href="#contact"
+          class="btn-gradient rounded-xl px-6 py-3 text-sm font-semibold text-white"
+        >
+          Get in touch
+        </a>
+        {
+          profile.links.map((l) => (
+            <a
+              href={l.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm text-(--color-ink-muted) underline-offset-4 transition hover:text-violet-300 hover:underline"
+            >
+              {l.label} ↗
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="fade-up pt-20">
+      <h2 class="section-heading"><span class="num">01</span> About</h2>
+      <div class="mt-6 space-y-4 leading-relaxed text-(--color-ink-muted)">
+        {about.map((p) => <p>{p}</p>)}
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="fade-up pt-20">
+      <h2 class="section-heading"><span class="num">02</span> Experience</h2>
+      <ol class="mt-8 space-y-10 border-l border-white/10">
+        {
+          experience.map((job) => (
+            <li class="relative pl-8">
+              <span class="timeline-dot absolute top-1.5 -left-[5px] size-2.5 rounded-full" />
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+                <h3 class="text-lg font-semibold">
+                  {job.role}
+                  <span class="text-gradient"> · {job.company}</span>
+                </h3>
+                <p class="font-mono text-xs text-(--color-ink-muted)">
+                  {job.period}
+                </p>
+              </div>
+              {job.location && (
+                <p class="mt-0.5 text-sm text-(--color-ink-muted)">
+                  {job.location}
+                </p>
+              )}
+              <ul class="mt-3 list-disc space-y-2 pl-4 text-sm leading-relaxed text-(--color-ink-muted) marker:text-violet-400">
+                {job.points.map((pt) => (
+                  <li>{pt}</li>
+                ))}
+              </ul>
+              {job.tech && (
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {job.tech.map((t) => (
+                    <span class="chip rounded-full px-3 py-1 font-mono text-xs">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="fade-up pt-20">
+      <h2 class="section-heading"><span class="num">03</span> Skills</h2>
+      <div class="mt-6 grid gap-4 sm:grid-cols-3">
+        {
+          skills.map((group) => (
+            <div class="glass rounded-2xl p-5">
+              <h3 class="font-mono text-xs tracking-wider text-cyan-300 uppercase">
+                {group.category}
+              </h3>
+              <ul class="mt-3 space-y-1.5 text-sm text-(--color-ink-muted)">
+                {group.items.map((s) => (
+                  <li>{s}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="fade-up pt-20">
+      <h2 class="section-heading"><span class="num">04</span> Projects</h2>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {
+          projects.map((p, i) => (
+            <a
+              href={p.url ?? "#"}
+              target={p.url ? "_blank" : undefined}
+              rel={p.url ? "noopener noreferrer" : undefined}
+              class:list={[
+                "glass group rounded-2xl p-5",
+                i === 0 && "glow-ring sm:col-span-2",
+              ]}
+            >
+              <h3 class="font-semibold transition group-hover:text-violet-300">
+                {p.name} {p.url && <span class="text-xs">↗</span>}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-(--color-ink-muted)">
+                {p.description}
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                {p.tech.map((t) => (
+                  <span class="chip rounded-full px-3 py-1 font-mono text-xs">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="fade-up pt-20">
+      <h2 class="section-heading"><span class="num">05</span> Education</h2>
+      <div class="mt-6 space-y-4">
+        {
+          education.map((ed) => (
+            <div class="glass rounded-2xl p-5">
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+                <h3 class="font-semibold">{ed.degree}</h3>
+                <p class="font-mono text-xs text-(--color-ink-muted)">
+                  {ed.period}
+                </p>
+              </div>
+              <p class="text-gradient mt-1 text-sm font-medium">
+                {ed.institution}
+              </p>
+              {ed.detail && (
+                <p class="mt-2 text-sm text-(--color-ink-muted)">{ed.detail}</p>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="fade-up pt-20">
+      <h2 class="section-heading"><span class="num">06</span> Certifications</h2>
+      <ul class="mt-6 space-y-2 text-sm text-(--color-ink-muted)">
+        {
+          certifications.map((c) => (
+            <li class="flex items-start gap-3">
+              <span class="timeline-dot mt-1.5 size-1.5 shrink-0 rounded-full" />
+              {c.url ? (
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cert-link"
+                >
+                  {c.label} <span class="text-xs">↗</span>
+                </a>
+              ) : (
+                c.label
+              )}
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- Badges (hidden until toggled) -->
+      <div class="mt-8">
+        <button
+          id="badges-toggle"
+          aria-expanded="false"
+          aria-controls="badges-panel"
+          class="glow-ring group inline-flex cursor-pointer items-center gap-2.5 rounded-xl bg-white/5 px-5 py-2.5 font-mono text-sm text-violet-200 backdrop-blur transition hover:bg-white/10"
+        >
+          <svg
+            class="size-4 text-cyan-300 transition group-hover:rotate-12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="8" r="6"></circle>
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+          </svg>
+          Badges
+          <span
+            id="badges-chevron"
+            class="text-xs text-(--color-ink-muted) transition-transform duration-300"
+          >
+            ▾
+          </span>
+        </button>
+
+        <div id="badges-panel" class="badge-panel" hidden>
+          <div class="pt-5">
+            <div class="grid gap-4 sm:grid-cols-2">
+              {
+                badges.map((b) => (
+                  <a
+                    href={b.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="glass glow-ring group flex items-center gap-5 rounded-2xl p-5"
+                  >
+                    <img
+                      src={b.image}
+                      alt={`${b.name} badge`}
+                      width="96"
+                      height="96"
+                      loading="lazy"
+                      class="size-24 shrink-0 drop-shadow-[0_0_16px_rgba(167,139,250,0.35)] transition group-hover:scale-105"
+                      onerror="this.style.display='none'"
+                    />
+                    <div>
+                      <h3 class="font-semibold transition group-hover:text-violet-300">
+                        {b.name}
+                      </h3>
+                      <p class="mt-1 text-xs text-(--color-ink-muted)">
+                        {b.issuer}
+                      </p>
+                      <p class="mt-1 font-mono text-xs text-(--color-ink-muted)">
+                        {b.validity}
+                      </p>
+                      <p class="mt-2 font-mono text-xs text-cyan-300">
+                        Verify on Credly ↗
+                      </p>
+                    </div>
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const toggle = document.getElementById("badges-toggle");
+        const panel = document.getElementById("badges-panel");
+        const chevron = document.getElementById("badges-chevron");
+        toggle?.addEventListener("click", () => {
+          const open = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!open));
+          if (chevron) chevron.style.transform = open ? "" : "rotate(180deg)";
+          if (!panel) return;
+          if (open) {
+            panel.classList.remove("open");
+            setTimeout(() => (panel.hidden = true), 350);
+          } else {
+            panel.hidden = false;
+            requestAnimationFrame(() => panel.classList.add("open"));
+          }
+        });
+      </script>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="fade-up pt-28 text-center">
+      <p class="font-mono text-sm text-cyan-300"> 01 · what's next</p>
+      <h2 class="text-gradient mt-3 text-4xl font-bold">Get in touch</h2>
+      <p class="mx-auto mt-4 max-w-md text-(--color-ink-muted)">
+        Whether you have an opportunity, a question, or just want to say hello —
+        my inbox is open.
+      </p>
+      <div class="mt-8">
+        <CopyEmail client:visible email={profile.email} />
+      </div>
+    </section>
+
+    <footer class="pt-28 text-center font-mono text-xs text-(--color-ink-muted)">
+      © {new Date().getFullYear()} {profile.name} · adityagollapalli.in
+    </footer>
+  </main>
+</Base>
