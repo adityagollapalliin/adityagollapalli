@@ -2,7 +2,7 @@
 
 export const profile = {
   name: "Aditya Gollapalli",
-  title: "Business Systems Analyst · Data & Integrations",
+  title: "Data Analyst · Developer · Business Systems Analyst",
   tagline:
     "I build data pipelines, SaaS integrations, and workflow automation — mostly in Snowflake environments. I'm comfortable picking up an unfamiliar platform API, working out what it can and cannot do, and turning that into a spec another team can build against.",
   email: "adityagollapalli@gmail.com",
@@ -15,7 +15,7 @@ export const profile = {
 
 export const about = [
   "My work usually starts at early requirements conversations and runs through to testing and handoff. At Snowflake I built Python integrations across PagerDuty, Workday, Wrike, and ServiceNow — replacing manual reconciliation with scheduled pipelines and authoring the interface agreements that let partner teams build in parallel.",
-  "I also apply ML and LLM techniques to real problems — including a stylometric AI-detection ensemble that reached 94.5% accuracy on court documents. I've also built and deployed a prototype of an HVAC AI RAG assistant as well. I hold an MS in Computer Science (Data Science) from Seattle University.",
+  "I also apply ML and LLM techniques to real problems — including a stylometric AI-detection ensemble that reached 94.5% accuracy on court documents. I hold an MS in Computer Science (Data Science) from Seattle University.",
 ];
 
 export interface Experience {
@@ -87,7 +87,7 @@ export const skills: { category: string; items: string[] }[] = [
   },
   {
     category: "Data Engineering",
-    items: ["Snowflake", "Snowpark", "ETL pipeline design", "Apache Airflow", "Data modeling", "RBAC", "Data quality"],
+    items: ["Snowflake", "Snowpark", "ETL pipeline design", "Data modeling", "RBAC", "Data quality"],
   },
   {
     category: "AI & LLM",
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     name: "Twitter Data Pipeline",
     description:
       "Automated ETL pipeline with scheduled Airflow DAGs to ingest, transform, and load social media data.",
-    tech: ["Python", "Apache Airflow"],
+    tech: ["Python", "Data ETL"],
   },
 ];
 
@@ -161,7 +161,11 @@ export const certifications: Certification[] = [
     url: "https://www.credly.com/badges/e4c85e20-52f9-4cec-b872-472d72fd9490",
   },
   {
-    label: "DataCamp: Data Analyst Associate · Intermediate SQL · Introduction to SQL",
+    label: "DataCamp: Data Analyst Associate",
+    url: "https://www.datacamp.com/certificate/DAA0016527998969",
+  },
+  {
+    label: "DataCamp: Intermediate SQL · Introduction to SQL",
   },
 ];
 
