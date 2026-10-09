@@ -2,7 +2,7 @@
 
 export const profile = {
   name: "Aditya Gollapalli",
-  title: "Data Analyst · Developer · Business Systems Analyst",
+  title: "Software Engineer · Data Analyst · Business Systems Analyst",
   tagline:
     "I build data pipelines, SaaS integrations, and workflow automation — mostly in Snowflake environments. I'm comfortable picking up an unfamiliar platform API, working out what it can and cannot do, and turning that into a spec another team can build against.",
   email: "adityagollapalli@gmail.com",
@@ -29,6 +29,17 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
+    role: "Software Engineer, AI Engineering",
+    company: "EPAM Systems",
+    period: "Aug 2026 - Present",
+    location: "Hyderabad, India",
+    points: [
+      "My work entails: Building Custom LLM's, Researching on LLM's, RunPods GPU's",
+      "Will add more as responsibilities as I am in onboarding",
+    ],
+    tech: ["Python", "ML", "Model Inferecing", "AI", "Research", "LLM's" ],
+  },
+    
     role: "Business Systems Analyst, Enterprise Applications",
     company: "Snowflake Inc.",
     period: "Aug 2025 – Feb 2026",
