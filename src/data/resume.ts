@@ -39,7 +39,7 @@ export const experience: Experience[] = [
     ],
     tech: ["Python", "ML", "Model Inferecing", "AI", "Research", "LLM's" ],
   },
-    
+  {
     role: "Business Systems Analyst, Enterprise Applications",
     company: "Snowflake Inc.",
     period: "Aug 2025 – Feb 2026",
