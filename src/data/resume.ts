@@ -37,7 +37,7 @@ export const experience: Experience[] = [
       "My work entails: Building Custom LLM's, Researching on LLM's, RunPods GPU's",
       "Will add more as responsibilities as I am in onboarding",
     ],
-    tech: ["Python", "ML", "Model Inferecing", "AI", "Research", "LLM's" ],
+    tech: ["Python", "ML", "Model Inference", "AI", "Research", "LLM's" ],
   },
   {
     role: "Business Systems Analyst, Enterprise Applications",
