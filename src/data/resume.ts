@@ -17,9 +17,11 @@ export const profile = {
   ],
 };
 
+// Previous text: backups/about-2026-10-25.md
 export const about = [
-  "My work usually starts at early requirements conversations and runs through to testing and handoff. At Snowflake I built Python integrations across PagerDuty, Workday, Wrike, and ServiceNow — replacing manual reconciliation with scheduled pipelines and authoring the interface agreements that let partner teams build in parallel.",
-  "I also apply ML and LLM techniques to real problems — including a stylometric AI-detection ensemble that reached 94.5% accuracy on court documents. I hold an MS in Computer Science (Data Science) from Seattle University.",
+  "My work currently focuses on AI research and experimentation, particularly with vision-language models (VLMs) and adapting general-purpose models for domain-specific applications. I'm interested in exploring different training methodologies, experimenting with model architectures, and understanding how these decisions influence model behavior and performance.",
+  "My background also includes data engineering, SaaS integrations, and workflow automation. At Snowflake, I built Python integrations across PagerDuty, Workday, Wrike, and ServiceNow, replacing manual reconciliation with automated pipelines and defining interface agreements that enabled teams to develop in parallel. I've also applied ML and LLM techniques to practical problems, including a stylometric AI-detection ensemble that achieved 94.5% accuracy on court documents.",
+  "Beyond active research and model training, I dedicate time to continuous technical learning, exploring emerging technologies, strengthening my foundations, and expanding my skills across AI and software engineering. I hold an MS in Computer Science (Data Science) from Seattle University.",
 ];
 
 export interface Experience {
