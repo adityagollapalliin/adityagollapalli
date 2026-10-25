@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title = `${profile.name} — ${profile.title}`,
-  description = profile.tagline,
+  description = profile.tagline[0],
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);

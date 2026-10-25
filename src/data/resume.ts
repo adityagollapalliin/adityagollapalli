@@ -3,8 +3,12 @@
 export const profile = {
   name: "Aditya Gollapalli",
   title: "Software Engineer · Data Analyst · Business Systems Analyst",
-  tagline:
-    "I build data pipelines, SaaS integrations, and workflow automation — mostly in Snowflake environments. I'm comfortable picking up an unfamiliar platform API, working out what it can and cannot do, and turning that into a spec another team can build against.",
+  // Hero intro, one string per paragraph. The first paragraph is also the
+  // page's meta description. Previous text: backups/hero-tagline-2026-10-25.md
+  tagline: [
+    "My work focuses on AI research and experimentation, particularly with vision-language models (VLMs) and adapting general-purpose models for domain-specific applications. I'm interested in exploring different training methodologies, experimenting with model architectures, and understanding how these decisions influence model behavior and performance.",
+    "Beyond active research and model training, I dedicate time to continuous learning and technical exploration, keeping up with emerging technologies, strengthening my foundations, and expanding my skills across AI and software engineering.",
+  ],
   email: "reach-out-to-me@adityagollapalli.in",
   location: "Hyderabad, India",
   links: [

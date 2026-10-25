@@ -26,9 +26,9 @@ import {
       <h2 class="hero-in d2 mt-3 text-xl font-semibold text-(--color-ink-muted) sm:text-2xl">
         {profile.title}
       </h2>
-      <p class="hero-in d3 mt-6 max-w-xl leading-relaxed text-(--color-ink-muted)">
-        {profile.tagline}
-      </p>
+      <div class="hero-in d3 mt-6 max-w-xl space-y-4 leading-relaxed text-(--color-ink-muted)">
+        {profile.tagline.map((para) => <p>{para}</p>)}
+      </div>
       <div class="hero-in d4 mt-10 flex flex-wrap items-center gap-5">
         <a
           href="#contact"
