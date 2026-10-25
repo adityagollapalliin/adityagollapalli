@@ -5,7 +5,7 @@ export const profile = {
   title: "Software Engineer · Data Analyst · Business Systems Analyst",
   tagline:
     "I build data pipelines, SaaS integrations, and workflow automation — mostly in Snowflake environments. I'm comfortable picking up an unfamiliar platform API, working out what it can and cannot do, and turning that into a spec another team can build against.",
-  email: "adityagollapalli@gmail.com",
+  email: "reach-out-to-me@adityagollapalli.in",
   location: "Hyderabad, India",
   links: [
     { label: "GitHub", url: "https://github.com/adityagollapalli" },
