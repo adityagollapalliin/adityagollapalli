@@ -5,6 +5,7 @@ import {
   profile,
   about,
   experience,
+  techLinks,
   skills,
   projects,
   education,
@@ -88,11 +89,22 @@ import {
               </ul>
               {job.tech && (
                 <div class="mt-4 flex flex-wrap gap-2">
-                  {job.tech.map((t) => (
-                    <span class="chip rounded-full px-3 py-1 font-mono text-xs">
-                      {t}
-                    </span>
-                  ))}
+                  {job.tech.map((t) =>
+                    techLinks[t] ? (
+                      <a
+                        href={techLinks[t]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="chip rounded-full px-3 py-1 font-mono text-xs"
+                      >
+                        {t} <span class="text-[0.65rem]">↗</span>
+                      </a>
+                    ) : (
+                      <span class="chip rounded-full px-3 py-1 font-mono text-xs">
+                        {t}
+                      </span>
+                    )
+                  )}
                 </div>
               )}
             </li>
