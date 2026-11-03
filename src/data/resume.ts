@@ -33,6 +33,30 @@ export interface Experience {
   tech?: string[];
 }
 
+// Where each experience tech chip links to. Tools point to their official
+// sites; general concepts point to a reference page. Chips without an entry
+// render as plain text.
+export const techLinks: Record<string, string> = {
+  Python: "https://www.python.org/",
+  ML: "https://en.wikipedia.org/wiki/Machine_learning",
+  "Model Inference": "https://en.wikipedia.org/wiki/Inference_engine",
+  AI: "https://en.wikipedia.org/wiki/Artificial_intelligence",
+  Research: "https://en.wikipedia.org/wiki/Research",
+  "LLM's": "https://en.wikipedia.org/wiki/Large_language_model",
+  Snowflake: "https://www.snowflake.com/",
+  Snowpark: "https://www.snowflake.com/en/product/features/snowpark/",
+  PagerDuty: "https://www.pagerduty.com/",
+  Workday: "https://www.workday.com/",
+  Wrike: "https://www.wrike.com/",
+  ServiceNow: "https://www.servicenow.com/",
+  "AWS Bedrock": "https://aws.amazon.com/bedrock/",
+  "Vector Search": "https://en.wikipedia.org/wiki/Vector_database",
+  Analytics: "https://en.wikipedia.org/wiki/Analytics",
+  Agile: "https://agilemanifesto.org/",
+  QA: "https://en.wikipedia.org/wiki/Software_quality_assurance",
+  UAT: "https://en.wikipedia.org/wiki/Acceptance_testing#User_acceptance_testing",
+};
+
 export const experience: Experience[] = [
   {
     role: "Software Engineer, AI Engineering",
